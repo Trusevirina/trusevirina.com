@@ -4,7 +4,7 @@ Theme URI: http://www.trusevirina.altervista.org
 Author: Karina Truseviciute
 Author URI: http://www.trusevirina.altervista.org
 Description: TRUSEVIRINA.COM is a static website built from scratch with HTML, CSS, and minimal JavaScript. Designed as a personal space and blog regularly updated with new content, it is not intended for reuse as a generic template but stands as a unique project in continuous evolution. Version, Alpha.
-Version: Alpha
+Version: 0.1.0-alpha
 License: All Rights Reserved
 License URI: http://www.trusevirina.altervista.org
 Tags: blog, wikipedia, simple, 
@@ -360,4 +360,5 @@ footer .social .social-item a:hover {
 
 .btn:hover {
     background-color: #C0C0C0;
+
 }
