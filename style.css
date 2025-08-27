@@ -1,0 +1,363 @@
+/*
+Theme Name: My Old Website
+Theme URI: http://www.trusevirina.altervista.org
+Author: Karina Truseviciute
+Author URI: http://www.trusevirina.altervista.org
+Description: TRUSEVIRINA.COM is a static website built from scratch with HTML, CSS, and minimal JavaScript. Designed as a personal space and blog regularly updated with new content, it is not intended for reuse as a generic template but stands as a unique project in continuous evolution. Version, Alpha.
+Version: Alpha
+License: All Rights Reserved
+License URI: http://www.trusevirina.altervista.org
+Tags: blog, wikipedia, simple, 
+Text Domain: the-old-website
+*/
+
+
+
+/* Stile generale di header e footer */
+header, footer {
+    text-align: center;           /* Centra sia il titolo che i link */
+    font-family: Arial, sans-serif;
+    padding: 25px 0;
+    position: relative;
+}
+
+/* Linea sopra (sia header che footer) */
+header::before,
+footer::before {
+    content: "";
+    display: block;
+    width: 95%;            /* Largo metà della pagina */
+    height: 2px;           /* Spessore della linea */
+    background: #000;      /* Colore nero */
+    margin: 0 auto 40px;   /* Auto = centrato, 20px sotto */
+}
+
+
+/* Linea sotto (sia header che footer) */
+header::after,
+footer::after {
+    content: "";
+    display: block;
+    width: 95%;
+    height: 2px;
+    background: #000;
+    margin: 40px auto 0;   /* 20px sopra, centrato */
+}
+
+/* Stile del titolo */
+header h1 {
+    font-size: 2em;       /* Più grande del normale */
+    margin-top: 40px;     /* Spazio dall'alto */
+    margin-bottom: 40px;  /* Spazio sotto il titolo */
+}
+
+/* Stile della lista di link (header con spazio sotto) */
+header nav ul {
+    list-style: none;     /* Rimuove i punti accanto */
+    padding: 0;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+/* Stile della lista di link (footer senza spazio sotto) */
+footer nav ul {
+    list-style: none;     /* Rimuove i punti accanto */
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+/* Link allineati sulla stessa riga (header + footer) */
+header nav ul li,
+footer nav ul li {
+    display: inline;      /* Tutti sulla stessa riga */
+    margin: 0 15px;       /* Spaziatura tra i link */
+}
+
+/* Stile dei link (header + footer) */
+header nav ul li a,
+footer nav ul li a {
+    text-decoration: none;   /* Toglie la sottolineatura */
+    font-size: 1.2em;        /* Un po' più grande */
+    color: #000;             /* Nero (puoi cambiarlo) */
+}
+
+/* Effetto al passaggio del mouse sui link (header + footer) */
+header nav ul li a:hover,
+footer nav ul li a:hover {
+    font-weight: bold;                       /* Grassetto */
+    text-decoration: underline;              /* Sottolineato */
+    background-color: rgba(0, 0, 0, 0.1);   /* Sfondo nero leggermente trasparente */
+    padding: 3px 8px;                        /* Piccolo spazio interno per la sfumatura */
+    border-radius: 4px;                       /* Angoli leggermente arrotondati */
+    transition: all 0.3s ease;              /* Animazione fluida */
+}
+
+/* Stile link nel footer social */
+footer .social a {
+    text-decoration: none;               /* Come header, niente sottolineatura di default */
+    color: #000;                         /* Nero, come header */
+    font-family: Arial, sans-serif;      /* Coerente con header */
+    font-weight: normal;                  /* Mantieni la grandezza normale */
+    display: inline-block;                /* Per poter aggiungere padding se vuoi */
+    margin: 0 10px;                       /* Spazio tra i link */
+    transition: all 0.3s ease;           /* Animazione fluida al passaggio del mouse */
+}
+
+/* Hover effetto come header menu */
+footer .social a:hover {
+    font-weight: bold;                     /* Grassetto al passaggio del mouse */
+    text-decoration: underline;            /* Sottolineato */
+    background-color: rgba(0, 0, 0, 0.1); /* Sfondo nero leggermente trasparente */
+    padding: 2px 6px;                      /* Piccolo spazio interno */
+    border-radius: 4px;                    /* Angoli leggermente arrotondati */
+}
+
+/* Simboli | dei social */
+footer .social .pipe {
+    font-size: 90%;          /* Piccoli come i social */
+    color: #000;
+    margin: 0 2px;           /* Distanza tra simboli e link */
+}
+
+/* Blocco dei link social */
+footer .social .social-item {
+    display: inline-block;   
+    font-family: Arial, sans-serif;
+    font-size: 90%;          
+    color: #000;
+    margin: 0 2px;           
+    transition: all 0.3s ease;
+}
+
+/* Hover solo sul link */
+footer .social .social-item a:hover {
+    font-weight: bold;                     
+    text-decoration: underline;           
+    background-color: rgba(0, 0, 0, 0.1); 
+    padding: 2px 6px;                     
+    border-radius: 4px;                   
+}
+
+.copyright {
+    margin-top: 3%;
+}
+
+
+
+
+
+
+/* Default: schermi piccoli/medi */
+.sidebar {
+    flex: 1;  /* occupa 1 “parte” */
+}
+
+.content {
+    flex: 4;  /* occupa 4 “parti” */
+}
+
+
+/* Container principale */
+.container {
+  display: flex;
+  justify-content: flex-end; /* sposta la prima colonna a destra */
+  gap: 35px;
+  padding: 40.5px;
+}
+
+/* 1° Gruppo: elementi a destra */
+/* Regola generale: qualsiasi testo nella sidebar segue la linea destra con 5px di distanza */
+.sidebar * {
+    text-align: right;
+    padding-right: 5;
+}
+
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #555;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #000;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+.justified {
+  text-align: justify;
+}
+
+
+
+/* Widget della data */
+.date-widget {
+    margin-bottom: 30px;           /* spazio sotto il widget */
+    padding: 10px 5px;             /* piccolo padding interno */
+    border: 1px solid #000;        /* bordo nero sottile */
+    background-color: #f9f9f9;     /* colore leggermente diverso dal background */
+    font-family: 'Arial Nova Light', sans-serif;
+    font-size: 1em;              /* leggermente più piccolo della sidebar */
+    font-style: italic;
+    text-align: right;             /* coerente con il resto della sidebar */
+    line-height: 1.6;              /* distanza tra righe */
+}
+
+/* La data e l'orario hanno stili leggermente diversi */
+.date-widget #today {
+    color: #000;                    /* testo nero */
+    font-weight: normal;
+}
+
+
+
+
+/* 2° Gruppo: contenuto principale */
+.content article {
+  margin-bottom: 40px;
+}
+
+.container h1, .container h2, .container h3, .container h4, .container h5, .container h6 {
+  margin-bottom: 15px;
+  font-family: 'Arial', serif;
+}
+
+.container h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+
+.container p {
+  font-family: 'Arial Nova Light', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Stile link “read more” inline */
+.read-more {
+  text-decoration: none;        /* niente sottolineatura di default */
+  color: #000;                  /* nero, come i link principali */
+  font-weight: bold;            /* leggermente in evidenza */
+  margin-left: 5px;             /* piccolo spazio dal testo precedente */
+  transition: all 0.2s ease;   /* transizione fluida */
+}
+
+.read-more:hover {
+  text-decoration: underline;   /* sottolineato al passaggio del mouse */
+  color: #555;                  /* colore leggermente più chiaro */
+  transform: scale(1.05);       /* ingrandimento leggero */
+}
+
+
+/* Contenitore delle colonne */
+.columns-container {
+    display: flex;
+    justify-content: space-between; /* spazio uguale tra colonne */
+    gap: 20px; /* distanza uniforme tra le colonne */
+    padding: 20px;
+}
+
+/* Colonne singole */
+.column {
+    flex: 1;                   /* tutte uguali */
+    border: 2px solid black;   /* bordo nero 2px */
+    border-radius: 10px;       /* angoli arrotondati */
+    overflow: hidden;          /* fa rispettare i bordi arrotondati alle immagini */
+    padding: 2px;              /* distanza tra bordo e contenuto */
+    box-sizing: border-box;    /* include padding nel calcolo larghezza */
+}
+
+/* Immagini */
+.column img {
+    width: 100%;               /* l'immagine riempie la colonna */
+    height: auto;              /* mantiene proporzioni */
+    display: block;            /* rimuove spazi indesiderati sotto l'immagine */
+    border-radius: 8px;        /* arrotondato interno, un po’ meno del bordo esterno */
+}
+
+/* Wrapper per immagine + overlay */
+.image-wrapper {
+    position: relative;
+}
+
+/* Immagine normale */
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Overlay inizialmente nascosto */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* oscuramento */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;              /* invisibile */
+    transition: opacity 0.3s ease;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+/* Mostra overlay al passaggio del mouse */
+.image-wrapper:hover img {
+    filter: brightness(70%); /* scurisce l'immagine */
+}
+
+.image-wrapper:hover .overlay {
+    opacity: 1;
+}
+
+/* Stile testo overlay */
+.overlay h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    font-family: Arial, sans-serif;
+}
+
+.overlay p {
+    margin: 0 0 15px 0;
+    font-size: 0.95em;
+    font-family: 'Arial Nova Light', sans-serif;
+}
+
+/* Bottone MORE */
+.btn {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #A2A2A2;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s ease;
+    font-family: Arial, sans-serif;
+}
+
+.btn:hover {
+    background-color: #C0C0C0;
+}

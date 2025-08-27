@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<HTML>
+
+
+	<HEAD>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Trusevirina</title>
+		<meta name="description" content="Trusevirina.com is a personal website of Karina Truseviciute, a young writer in her twenties who's wanted publish a website in simple old style.">
+		<meta name="keyboards" content="website, blog, creative writing, writing, reading, old style">
+		<meta name="author" content="Karina Truseviciute">
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" type="image/png" href="Logo.png">
+
+	</HEAD>
+
+
+
+	<BODY>
+
+		<header>
+
+			<h1>TRUSEVIRINA.COM</h1>
+
+			<nav>
+				<ul>
+					| <li><a href="index.html"> Home </a></li> |
+					<li><a href="blog/blog-diary.html"> Blog </a></li> |
+					<li><a href="about.html"> About </a></li> |
+					<li><a href="contact.html"> Contact </a></li> |
+					<li><a href="resources.html"> Resources & Download </a></li> |
+					<li><a href="newsletter.html"> Newsletter </a></li> |
+				</ul>
+			</nav>
+
+		</header>
+
+
+		<main class="container">
+  
+			<!-- 1° Gruppo: Sidebar a sinistra -->
+  			<aside class="sidebar">
+           
+				<div class="widget date-widget">
+    				<span id="today-date"></span><br>
+    				<span id="today-time"></span>
+				</div>
+
+
+                <script>
+                    function getOrdinal(n) {
+                        if (n > 3 && n < 21) return n + "th"; // numeri dal 4 al 20 
+                        switch (n % 10) {
+                            case 1: return n + "st";
+                            case 2: return n + "nd";
+                            case 3: return n + "rd";
+                            default: return n + "th";
+                        }
+                    }
+                    function getOrdinal(n) {
+    					if (n > 3 && n < 21) return n + "th";
+    					switch (n % 10) {
+        					case 1: return n + "st";
+        					case 2: return n + "nd";
+        					case 3: return n + "rd";
+        					default: return n + "th";
+    					}
+					}
+					function updateDateTime() {
+    					const now = new Date();
+    					const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    					const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    				    const dayName = weekdays[now.getDay()];
+    					const day = getOrdinal(now.getDate());
+    					const month = months[now.getMonth()];
+    					const year = now.getFullYear();
+
+    					let hours = now.getHours();
+    					const minutes = now.getMinutes().toString().padStart(2, "0");
+						let seconds = now.getSeconds().toString().padStart(2, "0");
+    					const ampm = hours >= 12 ? "PM" : "AM";
+    					hours = hours % 12;
+    					hours = hours ? hours : 12;
+
+    					document.getElementById("today-date").textContent = `Today is ${dayName}, ${day} ${month} ${year}.`;
+    					document.getElementById("today-time").textContent = `It's ${hours}:${minutes}:${seconds} ${ampm}.`;
+					}
+
+					updateDateTime();
+					setInterval(updateDateTime, 1000);
+				</script>
+
+
+				<h2>LOREM IPSUM</h2>
+  				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper.</p>
+
+  				<h3>LOREM IPSUM</h3>
+    			<ul>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+    			</ul>
+				
+				<h3>LOREM IPSUM</h3>
+    			<ul>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+      				<li><a href="#">Lorem Ipsum</a></li>
+    			</ul>
+  			</aside>
+
+			<!-- 2° Gruppo: Contenuto principale -->
+			<section class="content">
+				<div class="columns-container">
+					<div class="column">
+						<div class="image-wrapper">
+							<img src="images/Image 2.png" alt="Immagine 1">
+							<div class="overlay">
+								<h3>LOREM IPSUM</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut.</p>
+								<a href="#" class="btn">MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="image-wrapper">
+							<img src="images/Image 2.png" alt="Immagine 2">
+							<div class="overlay">
+								<h3>LOREM IPSUM</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut.</p>
+								<a href="#" class="btn">MORE</a>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<div class="image-wrapper">
+							<img src="images/Image 2.png" alt="Immagine 3">
+							<div class="overlay">
+								<h3>LOREM IPSUM</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut.</p>
+								<a href="#" class="btn">MORE</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h1>ARTICLES OF THE MONTH</h1>
+    			<article>
+      				<h2> ARTICOLO 1: "Lorem Ipsum"</h2>
+      				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<br>
+					Nunc gravida nulla eu enim congue pretium. Fusce placerat lorem sed erat hendrerit, ac rhoncus neque pharetra. Maecenas vestibulum, risus vitae finibus pellentesque, erat mauris lacinia purus, vel eleifend elit risus eu tellus. Mauris imperdiet sodales tortor faucibus scelerisque. In eget pharetra turpis. Duis et sapien tincidunt, tincidunt erat ut, aliquam mi. Proin fermentum lacinia mauris, et sodales arcu molestie id.<a class="read-more" href="#">READ MORE</a></p>
+				</article>
+
+    			<article>
+      				<h2> ARTICOLO 2: "Lorem Ipsum"</h2>
+      				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<br>
+					Nunc gravida nulla eu enim congue pretium. Fusce placerat lorem sed erat hendrerit, ac rhoncus neque pharetra. Maecenas vestibulum, risus vitae finibus pellentesque, erat mauris lacinia purus, vel eleifend elit risus eu tellus. Mauris imperdiet sodales tortor faucibus scelerisque. In eget pharetra turpis. Duis et sapien tincidunt, tincidunt erat ut, aliquam mi. Proin fermentum lacinia mauris, et sodales arcu molestie id.<a class="read-more" href="#">READ MORE</a></p>
+				</article>
+
+    			<article>
+      				<h2> ARTICOLO 3: "Lorem Ipsum"</h2>
+      				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<br>
+					Nunc gravida nulla eu enim congue pretium. Fusce placerat lorem sed erat hendrerit, ac rhoncus neque pharetra. Maecenas vestibulum, risus vitae finibus pellentesque, erat mauris lacinia purus, vel eleifend elit risus eu tellus. Mauris imperdiet sodales tortor faucibus scelerisque. In eget pharetra turpis. Duis et sapien tincidunt, tincidunt erat ut, aliquam mi. Proin fermentum lacinia mauris, et sodales arcu molestie id.<a class="read-more" href="#">READ MORE</a></p>
+				</article>
+			</section>
+		</main>
+
+
+
+		<footer>
+
+			<nav>
+				<ul>
+					| <li><a href="index.html"> Home </a></li> |
+					<li><a href="blog/blog-diary.html"> Blog </a></li> |
+					<li><a href="about.html"> About </a></li> |
+					<li><a href="contact.html"> Contact </a></li> |
+					<li><a href="resources.html"> Resources & Download </a></li> |
+					<li><a href="newsletter.html"> Newsletter </a></li> |
+				</ul>
+			</nav>
+			
+			<div class="social">
+    			<span class="pipe">|</span> <span class="social-item"><a href="#">Instagram</a></span>
+    			<span class="pipe">|</span> <span class="social-item"><a href="#">LinkedIn</a></span>
+    			<span class="pipe">|</span> <span class="social-item"><a href="#">Pinterest</a></span>
+    			<span class="pipe">|</span> <span class="social-item"><a href="#">Telegram</a></span>
+   				<span class="pipe">|</span> <span class="social-item"><a href="#">YouTube</a></span>
+    			<span class="pipe">|</span> <span class="social-item"><a href="#">VK</a></span>
+    			<span class="pipe">|</span> <span class="social-item"><a href="#">Rutube</a></span>
+   				<span class="pipe">|</span> <span class="social-item"><a href="#">Viber</a></span> <span class="pipe">|</span>
+			</div>
+
+			<div class="copyright">
+				<p> &copy; 2025 <a href="index.html">Trusevirina.com</a> - Tutti i diritti riservati </p>
+			</div>
+			
+		</footer>
+
+
+	</BODY>
+
+
+
+</HTML>
