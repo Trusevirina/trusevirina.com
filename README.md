@@ -35,22 +35,32 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
+    <li><a href="#report-bug">Report Bug</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#how-to-submit-a-bug-report">How to Submit a Bug Report</a></li>
+        <li><a href="#bug-report-structure">Bug Report Structure</a></li>
+        <li><a href="#example-bug-report">Example Bug Report</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap-todo">Roadmap / TODO</a></li>
-    <li><a href="#report-bug">Report Bug</a></li>
-    <li><a href="#requested-feature">Requested Feature</a></li>
+    <li><a href="#requested-feature">Requested Feature</a>
+      <ul>
+        <li><a href="#how-to-submit-a-feature-proposal">How to Submit a Feature Proposal</a></li>
+        <li><a href="#feature-proposal-structure">Feature Proposal Structure</a></li>
+        <li><a href="#example-feature-proposal">Example Feature Proposal</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap--todo">Roadmap / TODO</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#-contact">📬 Contact</a></li>
+    <li>
+      <a href="#acknowledgments">Acknowledgments</a>
+      <ul>
+        <li><a href="#youtube">YouTube</a></li>
+      </ul>
+    </li>
   </ol>
 </details>
+
 
 
 
