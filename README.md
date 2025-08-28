@@ -1,5 +1,8 @@
-<!-- PROJECT LOGO -->
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
+
+
+<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <a href="https://github.com/Trusevirina/trusevirina.com">
