@@ -20,189 +20,211 @@
 
 
 	<BODY>
+		<div class="main-wrapper">
+			
+			<header>
 
-		<header>
+				<h1>TRUSEVIRINA.COM</h1>
 
-			<h1>TRUSEVIRINA.COM</h1>
+				<nav>
+					<ul>
+						| <li><a href="index.html"> Home </a></li> |
+						<li><a href="blog/blog-diary.html"> Blog </a></li> |
+						<li><a href="pages/about.html"> About </a></li> |
+						<li><a href="pages/contact.html"> Contact </a></li> |
+						<li><a href="pages/resources.html"> Resources & Download </a></li> |
+						<li><a href="pages/newsletter.html"> Newsletter </a></li> |
+					</ul>
+				</nav>
 
-			<nav>
-				<ul>
-					| <li><a href="index.html"> Home </a></li> |
-					<li><a href="blog/blog-diary.html"> Blog </a></li> |
-					<li><a href="pages/about.html"> About </a></li> |
-					<li><a href="pages/contact.html"> Contact </a></li> |
-					<li><a href="pages/resources.html"> Resources & Download </a></li> |
-					<li><a href="pages/newsletter.html"> Newsletter </a></li> |
-				</ul>
-			</nav>
-
-		</header>
-
-
-		<main class="container">
-  
-			<!-- 1° Gruppo: Sidebar a sinistra -->
-  			<aside class="sidebar">
-           
-				<div class="widget date-widget">
-    				<span id="today-date"></span><br>
-    				<span id="today-time"></span>
-				</div>
+			</header>
 
 
-                <script>
-                    function getOrdinal(n) {
-                        if (n > 3 && n < 21) return n + "th"; // numeri dal 4 al 20 
-                        switch (n % 10) {
-                            case 1: return n + "st";
-                            case 2: return n + "nd";
-                            case 3: return n + "rd";
-                            default: return n + "th";
-                        }
-                    }
-                    function getOrdinal(n) {
-    					if (n > 3 && n < 21) return n + "th";
-    					switch (n % 10) {
-        					case 1: return n + "st";
-        					case 2: return n + "nd";
-        					case 3: return n + "rd";
-        					default: return n + "th";
-    					}
-					}
-					function updateDateTime() {
-    					const now = new Date();
-    					const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    					const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    				    const dayName = weekdays[now.getDay()];
-    					const day = getOrdinal(now.getDate());
-    					const month = months[now.getMonth()];
-    					const year = now.getFullYear();
-
-    					let hours = now.getHours();
-    					const minutes = now.getMinutes().toString().padStart(2, "0");
-						let seconds = now.getSeconds().toString().padStart(2, "0");
-    					const ampm = hours >= 12 ? "PM" : "AM";
-    					hours = hours % 12;
-    					hours = hours ? hours : 12;
-
-    					document.getElementById("today-date").textContent = `Today is ${dayName}, ${day} ${month} ${year}.`;
-    					document.getElementById("today-time").textContent = `It's ${hours}:${minutes}:${seconds} ${ampm}.`;
-					}
-
-					updateDateTime();
-					setInterval(updateDateTime, 1000);
-				</script>
+			<main class="container">
+	
+				<!-- 1° Gruppo: Sidebar a sinistra -->
+				<aside class="sidebar">
+			
+					<div class="widget date-widget">
+						<span>This is the time zone of: <b>Europe/Rome</b></span>.<br>
+						<span>Today is <b><span id="today-date"></span></b></span>.<br>
+						<span>It's <b><span id="today-time"></span></b>.</span>
+						</div>
 
 
-				<h2>LOREM IPSUM</h2>
-  				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper.</p>
+					<script>
+						function getOrdinal(n) {
+							if (n > 3 && n < 21) return n + "th";
+							switch (n % 10) {
+								case 1: return n + "st";
+								case 2: return n + "nd";
+								case 3: return n + "rd";
+								default: return n + "th";
+							}
+						}
 
-  				<h3>LOREM IPSUM</h3>
-    			<ul>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-    			</ul>
+						function updateDateTime() {
+							const now = new Date();
+
+							// Scegli il fuso orario: "Europe/London" o "Europe/Rome"
+							const timeZone = "Europe/Rome";  
+
+							const options = {
+								timeZone: timeZone,
+								weekday: 'long',
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+								hour: '2-digit',
+								minute: '2-digit',
+								second: '2-digit',
+								hour12: true
+							};
+
+							const formatter = new Intl.DateTimeFormat('en-GB', options);
+							const parts = formatter.formatToParts(now);
+
+							const dayName = parts.find(p => p.type === 'weekday').value;
+							const day = getOrdinal(parseInt(parts.find(p => p.type === 'day').value));
+							const month = parts.find(p => p.type === 'month').value;
+							const year = parts.find(p => p.type === 'year').value;
+							const hour = parts.find(p => p.type === 'hour').value;
+							const minute = parts.find(p => p.type === 'minute').value;
+							const second = parts.find(p => p.type === 'second').value;
+							const ampm = parts.find(p => p.type === 'dayPeriod').value;
+
+							document.getElementById("today-date").textContent = `${dayName}, ${day} ${month} ${year}`;
+							document.getElementById("today-time").textContent = `${hour}:${minute}:${second} ${ampm}`;
+						}
+
+						updateDateTime();
+						setInterval(updateDateTime, 1000);
+					</script>
+
+
+
+					<h2>LOREM IPSUM</h2>
+					<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. <a class="read-more" href="#">MORE</a></p>
+
+					<h3>LOREM IPSUM</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+					
+					<h3>LOREM IPSUM</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</aside>
+
+				<!-- 2° Gruppo: Contenuto principale -->
+				<section class="content">
+
+					<div class="title-wrapper">
+						<h1>ARTICLES OF THE MONTH</h1>
+					</div>
+					
+					<article>
+						<h2> ARTICOLO 1: "Lorem Ipsum"</h2>
+						<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<a class="read-more" href="#">READ MORE</a></p>
+					</article>
+
+					<article>
+						<h2> ARTICOLO 2: "Lorem Ipsum"</h2>
+						<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<a class="read-more" href="#">READ MORE</a></p>
+					</article>
+
+					<article>
+						<h2> ARTICOLO 3: "Lorem Ipsum"</h2>
+						<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<a class="read-more" href="#">READ MORE</a></p>
+					</article>
+
+				</section>
+			</main>
+
+
+
+			<footer>
+
+				<nav>
+					<ul>
+						| <li><a href="index.html"> Home </a></li> |
+						<li><a href="blog/blog-diary.html"> Blog </a></li> |
+						<li><a href="about.html"> About </a></li> |
+						<li><a href="contact.html"> Contact </a></li> |
+						<li><a href="resources.html"> Resources & Download </a></li> |
+						<li><a href="newsletter.html"> Newsletter </a></li> |
+					</ul>
+				</nav>
 				
-				<h3>LOREM IPSUM</h3>
-    			<ul>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-      				<li><a href="#">Lorem Ipsum</a></li>
-    			</ul>
-  			</aside>
-
-			<!-- 2° Gruppo: Contenuto principale -->
-			<section class="content">
-				<div class="columns-container">
-					<div class="column">
-						<div class="image-wrapper">
-							<img src="img/img2.webp" alt="Immagine1">
-							<div class="overlay">
-								<h3>LOREM IPSUM</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut.</p>
-								<a href="#" class="btn">MORE</a>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="image-wrapper">
-							<img src="img/img2.webp" alt="Immagine2">
-							<div class="overlay">
-								<h3>LOREM IPSUM</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut.</p>
-								<a href="#" class="btn">MORE</a>
-							</div>
-						</div>
-					</div>
-					<div class="column">
-						<div class="image-wrapper">
-							<img src="img/img2.webp" alt="Immagine3">
-							<div class="overlay">
-								<h3>LOREM IPSUM</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut.</p>
-								<a href="#" class="btn">MORE</a>
-							</div>
-						</div>
-					</div>
+				<div class="social">
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Instagram</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">LinkedIn</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Pinterest</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Telegram</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">YouTube</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">VK</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Rutube</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Viber</a></span> <span class="pipe">|</span>
 				</div>
 
-				<h1>ARTICLES OF THE MONTH</h1>
-    			<article>
-      				<h2> ARTICOLO 1: "Lorem Ipsum"</h2>
-      				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<br>
-					Nunc gravida nulla eu enim congue pretium. Fusce placerat lorem sed erat hendrerit, ac rhoncus neque pharetra. Maecenas vestibulum, risus vitae finibus pellentesque, erat mauris lacinia purus, vel eleifend elit risus eu tellus. Mauris imperdiet sodales tortor faucibus scelerisque. In eget pharetra turpis. Duis et sapien tincidunt, tincidunt erat ut, aliquam mi. Proin fermentum lacinia mauris, et sodales arcu molestie id.<a class="read-more" href="#">READ MORE</a></p>
-				</article>
+				<div class="copyright">
+					<p> &copy; 2025 <a href="index.html">Trusevirina.com</a> - Tutti i diritti riservati </p>
+				</div>
+				
+			</footer>
 
-    			<article>
-      				<h2> ARTICOLO 2: "Lorem Ipsum"</h2>
-      				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<br>
-					Nunc gravida nulla eu enim congue pretium. Fusce placerat lorem sed erat hendrerit, ac rhoncus neque pharetra. Maecenas vestibulum, risus vitae finibus pellentesque, erat mauris lacinia purus, vel eleifend elit risus eu tellus. Mauris imperdiet sodales tortor faucibus scelerisque. In eget pharetra turpis. Duis et sapien tincidunt, tincidunt erat ut, aliquam mi. Proin fermentum lacinia mauris, et sodales arcu molestie id.<a class="read-more" href="#">READ MORE</a></p>
-				</article>
-
-    			<article>
-      				<h2> ARTICOLO 3: "Lorem Ipsum"</h2>
-      				<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. Nunc quis neque ac dolor consequat volutpat id in lacus. In lobortis et magna a gravida. Integer gravida et leo id rhoncus. Donec vestibulum urna quis aliquam dapibus. Aenean urna diam, accumsan ac lacus a, vehicula convallis dolor. Cras quis varius nisi.<br>
-					Nunc gravida nulla eu enim congue pretium. Fusce placerat lorem sed erat hendrerit, ac rhoncus neque pharetra. Maecenas vestibulum, risus vitae finibus pellentesque, erat mauris lacinia purus, vel eleifend elit risus eu tellus. Mauris imperdiet sodales tortor faucibus scelerisque. In eget pharetra turpis. Duis et sapien tincidunt, tincidunt erat ut, aliquam mi. Proin fermentum lacinia mauris, et sodales arcu molestie id.<a class="read-more" href="#">READ MORE</a></p>
-				</article>
-			</section>
-		</main>
+		</div>
 
 
 
-		<footer>
 
-			<nav>
-				<ul>
-					| <li><a href="index.html"> Home </a></li> |
-					<li><a href="blog/blog-diary.html"> Blog </a></li> |
-					<li><a href="about.html"> About </a></li> |
-					<li><a href="contact.html"> Contact </a></li> |
-					<li><a href="resources.html"> Resources & Download </a></li> |
-					<li><a href="newsletter.html"> Newsletter </a></li> |
-				</ul>
-			</nav>
-			
-			<div class="social">
-    			<span class="pipe">|</span> <span class="social-item"><a href="#">Instagram</a></span>
-    			<span class="pipe">|</span> <span class="social-item"><a href="#">LinkedIn</a></span>
-    			<span class="pipe">|</span> <span class="social-item"><a href="#">Pinterest</a></span>
-    			<span class="pipe">|</span> <span class="social-item"><a href="#">Telegram</a></span>
-   				<span class="pipe">|</span> <span class="social-item"><a href="#">YouTube</a></span>
-    			<span class="pipe">|</span> <span class="social-item"><a href="#">VK</a></span>
-    			<span class="pipe">|</span> <span class="social-item"><a href="#">Rutube</a></span>
-   				<span class="pipe">|</span> <span class="social-item"><a href="#">Viber</a></span> <span class="pipe">|</span>
-			</div>
 
-			<div class="copyright">
-				<p> &copy; 2025 <a href="index.html">Trusevirina.com</a> - Tutti i diritti riservati </p>
-			</div>
-			
-		</footer>
+
+
+
+
+
+
+
+
+
+		<!-- Protezione anti-copia -->
+		<script>
+			// 1. Blocca click destro
+			document.addEventListener('contextmenu', event => event.preventDefault());
+
+			// 2. Blocca scorciatoie da tastiera comuni
+			document.addEventListener('keydown', function(e) {
+				// Ctrl+C, Ctrl+X, Ctrl+U, Ctrl+S, Ctrl+A
+				if (e.ctrlKey && ['c','x','u','s','a'].includes(e.key.toLowerCase())) {
+					e.preventDefault();
+					alert('Copia disabilitata per protezione contenuti.');
+				}
+			});
+
+			// 3. Facoltativo: overlay invisibile sugli articoli
+			document.querySelectorAll('.content article').forEach(article => {
+				let overlay = document.createElement('div');
+				overlay.className = 'protect-overlay';
+				article.style.position = 'relative';
+				article.appendChild(overlay);
+
+				// Permetti click sui link interni
+				overlay.style.pointerEvents = 'none';
+			});
+
+		</script>
+
+
 
 
 	</BODY>

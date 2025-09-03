@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<HTML>
+
+
+	<HEAD>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Trusevirina</title>
+		<meta name="description" content="Trusevirina.com is a personal website of Karina Truseviciute, a young writer in her twenties who's wanted publish a website in simple old style.">
+		<meta name="keyboards" content="website, blog, creative writing, writing, reading, old style">
+		<meta name="author" content="Karina Truseviciute">
+		<link rel="stylesheet" href="../style.css">
+		<link rel="icon" type="image/png" href="../Logo.png">
+
+	</HEAD>
+
+
+
+	<BODY>
+		<div class="main-wrapper">
+			
+			<header>
+
+				<h1>TRUSEVIRINA.COM</h1>
+
+                <nav>
+					<ul>
+						| <li><a href="../index.html"> Home </a></li> |
+						<li><a href="blog-diary.html"> Blog </a></li> |
+						<li><a href="../pages/about.html"> About </a></li> |
+						<li><a href="../pages/contact.html"> Contact </a></li> |
+						<li><a href="../pages/resources.html"> Resources & Download </a></li> |
+						<li><a href="../pages/newsletter.html"> Newsletter </a></li> |
+					</ul>
+				</nav>
+
+			</header>
+
+
+			<main class="container">
+	
+				<!-- 1° Gruppo: Sidebar a sinistra -->
+				<aside class="sidebar">
+			
+					<div class="widget date-widget">
+						<span>This is the time zone of: <b>Europe/Rome</b></span>.<br>
+						<span>Today is <b><span id="today-date"></span></b></span>.<br>
+						<span>It's <b><span id="today-time"></span></b>.</span>
+						</div>
+
+
+					<script>
+						function getOrdinal(n) {
+							if (n > 3 && n < 21) return n + "th";
+							switch (n % 10) {
+								case 1: return n + "st";
+								case 2: return n + "nd";
+								case 3: return n + "rd";
+								default: return n + "th";
+							}
+						}
+
+						function updateDateTime() {
+							const now = new Date();
+
+							// Scegli il fuso orario: "Europe/London" o "Europe/Rome"
+							const timeZone = "Europe/Rome";  
+
+							const options = {
+								timeZone: timeZone,
+								weekday: 'long',
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+								hour: '2-digit',
+								minute: '2-digit',
+								second: '2-digit',
+								hour12: true
+							};
+
+							const formatter = new Intl.DateTimeFormat('en-GB', options);
+							const parts = formatter.formatToParts(now);
+
+							const dayName = parts.find(p => p.type === 'weekday').value;
+							const day = getOrdinal(parseInt(parts.find(p => p.type === 'day').value));
+							const month = parts.find(p => p.type === 'month').value;
+							const year = parts.find(p => p.type === 'year').value;
+							const hour = parts.find(p => p.type === 'hour').value;
+							const minute = parts.find(p => p.type === 'minute').value;
+							const second = parts.find(p => p.type === 'second').value;
+							const ampm = parts.find(p => p.type === 'dayPeriod').value;
+
+							document.getElementById("today-date").textContent = `${dayName}, ${day} ${month} ${year}`;
+							document.getElementById("today-time").textContent = `${hour}:${minute}:${second} ${ampm}`;
+						}
+
+						updateDateTime();
+						setInterval(updateDateTime, 1000);
+					</script>
+
+
+
+					<h2>LOREM IPSUM</h2>
+					<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. <a class="read-more" href="#">MORE</a></p>
+
+					<h3>LOREM IPSUM</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+					
+					<h3>LOREM IPSUM</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</aside>
+
+				<!-- 2° Gruppo: Contenuto principale -->
+				<section class="content">
+
+					<div class="title-wrapper">
+						<h1>BLOG</h1>
+					</div>
+
+					<nav class="content-nav">
+						<ul>
+							| <li><a href="blog-article.html">Articles</a></li> |
+							<li><a href="blog-diary.html" class="active">Diary</a></li> |
+							<li><a href="blog-post.html">Posts</a></li> |
+							<li><a href="blog-writing.html">Writing</a></li> |
+							<li><a href="blog-news.html">News</a></li> |
+						</ul>
+					
+					</nav>
+
+					<section id="articles-list"></section>
+					<div id="pagination"></div>
+
+					<script src="diary/diary.js"></script>
+
+
+				</section>
+			</main>
+
+
+
+			<footer>
+
+				<nav>
+				<ul>
+					| <li><a href="../index.html"> Home </a></li> |
+					<li><a href="blog-diary.html"> Blog </a></li> |
+					<li><a href="../pages/about.html"> About </a></li> |
+					<li><a href="../pages/contact.html"> Contact </a></li> |
+					<li><a href="../pages/resources.html"> Resources & Download </a></li> |
+					<li><a href="../pages/newsletter.html"> Newsletter </a></li> |
+				</ul>
+				</nav>
+				
+				<div class="social">
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Instagram</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">LinkedIn</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Pinterest</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Telegram</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">YouTube</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">VK</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Rutube</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Viber</a></span> <span class="pipe">|</span>
+				</div>
+
+				<div class="copyright">
+					<p> &copy; 2025 <a href="../index.html">Trusevirina.com</a> - Tutti i diritti riservati </p>
+				</div>
+				
+			</footer>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- Protezione anti-copia -->
+		<script>
+			// 1. Blocca click destro
+			document.addEventListener('contextmenu', event => event.preventDefault());
+
+			// 2. Blocca scorciatoie da tastiera comuni
+			document.addEventListener('keydown', function(e) {
+				// Ctrl+C, Ctrl+X, Ctrl+U, Ctrl+S, Ctrl+A
+				if (e.ctrlKey && ['c','x','u','s','a'].includes(e.key.toLowerCase())) {
+					e.preventDefault();
+					alert('Copia disabilitata per protezione contenuti.');
+				}
+			});
+
+			// 3. Facoltativo: overlay invisibile sugli articoli
+			document.querySelectorAll('.content article').forEach(article => {
+				let overlay = document.createElement('div');
+				overlay.className = 'protect-overlay';
+				article.style.position = 'relative';
+				article.appendChild(overlay);
+
+				// Permetti click sui link interni
+				overlay.style.pointerEvents = 'none';
+			});
+
+		</script>
+
+
+
+
+	</BODY>
+
+
+
+</HTML>

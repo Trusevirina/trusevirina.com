@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<HTML>
+
+
+	<HEAD>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE-edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Trusevirina</title>
+		<meta name="description" content="Trusevirina.com is a personal website of Karina Truseviciute, a young writer in her twenties who's wanted publish a website in simple old style.">
+		<meta name="keyboards" content="website, blog, creative writing, writing, reading, old style">
+		<meta name="author" content="Karina Truseviciute">
+		<link rel="stylesheet" href="../style.css">
+		<link rel="icon" type="image/png" href="../Logo.png">
+
+	</HEAD>
+
+
+
+	<BODY>
+		<div class="main-wrapper">
+			
+			<header>
+
+				<h1>TRUSEVIRINA.COM</h1>
+
+				<nav>
+					<ul>
+						| <li><a href="../index.html"> Home </a></li> |
+						<li><a href="../blog/blog-diary.html"> Blog </a></li> |
+						<li><a href="about.html"> About </a></li> |
+						<li><a href="contact.html"> Contact </a></li> |
+						<li><a href="resources.html"> Resources & Download </a></li> |
+						<li><a href="newsletter.html"> Newsletter </a></li> |
+					</ul>
+				</nav>
+
+			</header>
+
+
+			<main class="container">
+	
+				<!-- 1° Gruppo: Sidebar a sinistra -->
+				<aside class="sidebar">
+			
+					<div class="widget date-widget">
+						<span>This is the time zone of: <b>Europe/Rome</b></span>.<br>
+						<span>Today is <b><span id="today-date"></span></b></span>.<br>
+						<span>It's <b><span id="today-time"></span></b>.</span>
+						</div>
+
+
+					<script>
+						function getOrdinal(n) {
+							if (n > 3 && n < 21) return n + "th";
+							switch (n % 10) {
+								case 1: return n + "st";
+								case 2: return n + "nd";
+								case 3: return n + "rd";
+								default: return n + "th";
+							}
+						}
+
+						function updateDateTime() {
+							const now = new Date();
+
+							// Scegli il fuso orario: "Europe/London" o "Europe/Rome"
+							const timeZone = "Europe/Rome";  
+
+							const options = {
+								timeZone: timeZone,
+								weekday: 'long',
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+								hour: '2-digit',
+								minute: '2-digit',
+								second: '2-digit',
+								hour12: true
+							};
+
+							const formatter = new Intl.DateTimeFormat('en-GB', options);
+							const parts = formatter.formatToParts(now);
+
+							const dayName = parts.find(p => p.type === 'weekday').value;
+							const day = getOrdinal(parseInt(parts.find(p => p.type === 'day').value));
+							const month = parts.find(p => p.type === 'month').value;
+							const year = parts.find(p => p.type === 'year').value;
+							const hour = parts.find(p => p.type === 'hour').value;
+							const minute = parts.find(p => p.type === 'minute').value;
+							const second = parts.find(p => p.type === 'second').value;
+							const ampm = parts.find(p => p.type === 'dayPeriod').value;
+
+							document.getElementById("today-date").textContent = `${dayName}, ${day} ${month} ${year}`;
+							document.getElementById("today-time").textContent = `${hour}:${minute}:${second} ${ampm}`;
+						}
+
+						updateDateTime();
+						setInterval(updateDateTime, 1000);
+					</script>
+
+
+
+					<h2>LOREM IPSUM</h2>
+					<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rhoncus dolor purus, non porta dui posuere ut. Nam sed erat rhoncus erat fringilla euismod et eget nisl. Phasellus facilisis rhoncus eros malesuada dignissim. Donec sollicitudin est enim, hendrerit scelerisque eros tempus semper. <a class="read-more" href="#">MORE</a></p>
+
+					<h3>LOREM IPSUM</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+					
+					<h3>LOREM IPSUM</h3>
+					<ul>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+						<li><a href="#">Lorem Ipsum</a></li>
+					</ul>
+				</aside>
+
+				<!-- 2° Gruppo: Contenuto principale -->
+				<section class="content">
+
+					<div class="title-wrapper">
+						<h1>WHO AM I?</h1>
+					</div>
+
+					<div class="table-of-contents">
+					<h2>Indice</h2>
+					<ul>
+						<li>1. <a href="#article1">Lorem Ipsum</a></li>
+						<li>2. <a href="#article2">Lorem Ipsum</a></li>
+						<li>3. <a href="#article3">Lorem Ipsum</a></li>
+					</ul>
+					</div>
+					
+					<article>
+						<h2 id="article1">1. Lorem Ipsum</h2>
+						<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula dolor a nulla iaculis pellentesque. Phasellus nisl neque, bibendum mattis ante sit amet, laoreet dapibus sapien. Etiam sodales sodales felis, eget scelerisque nunc malesuada id. Nam et sodales diam, sodales bibendum dolor. Etiam id felis enim. Duis malesuada velit quam, a tempus ligula finibus a. Sed erat sapien, eleifend ac elit sit amet, malesuada laoreet elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent eleifend mi ante, at hendrerit quam dapibus vitae. Fusce luctus augue in sem sollicitudin, non vehicula eros condimentum. Sed tincidunt lectus libero, sed porttitor lacus malesuada nec. Pellentesque mattis sollicitudin purus, eu egestas erat dignissim a.<br>
+						Ut ut eros finibus, vestibulum massa nec, mollis velit. Vivamus posuere maximus justo sed suscipit. Nulla tincidunt libero sem, in elementum leo dignissim non. Aliquam at ante vel velit molestie pulvinar. Ut consectetur risus vel risus consequat tristique. Proin leo nisl, pellentesque nec mattis eget, cursus sed urna. Nam semper venenatis lobortis. Curabitur accumsan ullamcorper nisl vitae tincidunt. Pellentesque semper mattis iaculis. Nulla facilisi. Cras nec tellus quis sem tincidunt porta eget nec lacus. Aliquam erat volutpat. Vestibulum interdum convallis odio ut luctus. Phasellus finibus bibendum condimentum. Aliquam tincidunt gravida consectetur.<br>
+						Proin ullamcorper aliquet libero nec faucibus. In quis tellus quam. Duis gravida ultrices rhoncus. Aliquam lectus nulla, mattis vitae molestie a, euismod nec tellus. Vestibulum dapibus nulla eget lectus molestie, non aliquam lacus aliquet. Suspendisse eu vulputate elit. Mauris at enim a elit tempor volutpat. Vivamus massa magna, auctor et mattis quis, molestie sit amet turpis. Nunc imperdiet facilisis justo vel vehicula. Etiam eros nisl, volutpat ut rutrum sed, molestie at nibh. Donec congue eleifend consequat. Nunc justo eros, interdum sed imperdiet vitae, iaculis non leo. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare ultricies dictum.<br>
+						Nunc dictum enim ut fringilla pretium. Morbi sem mi, egestas ac volutpat sit amet, cursus quis est. Nullam enim mi, eleifend id commodo eget, ornare id risus. Morbi eleifend id enim eu facilisis. Pellentesque erat mi, suscipit eget odio eget, feugiat porttitor urna. Ut libero lacus, commodo elementum iaculis a, consequat at turpis. Nulla ullamcorper vel felis in suscipit.</p>
+					</article>
+
+					<article>
+						<h2 id="article2">2. Lorem Ipsum</h2>
+						<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula dolor a nulla iaculis pellentesque. Phasellus nisl neque, bibendum mattis ante sit amet, laoreet dapibus sapien. Etiam sodales sodales felis, eget scelerisque nunc malesuada id. Nam et sodales diam, sodales bibendum dolor. Etiam id felis enim. Duis malesuada velit quam, a tempus ligula finibus a. Sed erat sapien, eleifend ac elit sit amet, malesuada laoreet elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent eleifend mi ante, at hendrerit quam dapibus vitae. Fusce luctus augue in sem sollicitudin, non vehicula eros condimentum. Sed tincidunt lectus libero, sed porttitor lacus malesuada nec. Pellentesque mattis sollicitudin purus, eu egestas erat dignissim a.<br>
+						Ut ut eros finibus, vestibulum massa nec, mollis velit. Vivamus posuere maximus justo sed suscipit. Nulla tincidunt libero sem, in elementum leo dignissim non. Aliquam at ante vel velit molestie pulvinar. Ut consectetur risus vel risus consequat tristique. Proin leo nisl, pellentesque nec mattis eget, cursus sed urna. Nam semper venenatis lobortis. Curabitur accumsan ullamcorper nisl vitae tincidunt. Pellentesque semper mattis iaculis. Nulla facilisi. Cras nec tellus quis sem tincidunt porta eget nec lacus. Aliquam erat volutpat. Vestibulum interdum convallis odio ut luctus. Phasellus finibus bibendum condimentum. Aliquam tincidunt gravida consectetur.<br>
+						Proin ullamcorper aliquet libero nec faucibus. In quis tellus quam. Duis gravida ultrices rhoncus. Aliquam lectus nulla, mattis vitae molestie a, euismod nec tellus. Vestibulum dapibus nulla eget lectus molestie, non aliquam lacus aliquet. Suspendisse eu vulputate elit. Mauris at enim a elit tempor volutpat. Vivamus massa magna, auctor et mattis quis, molestie sit amet turpis. Nunc imperdiet facilisis justo vel vehicula. Etiam eros nisl, volutpat ut rutrum sed, molestie at nibh. Donec congue eleifend consequat. Nunc justo eros, interdum sed imperdiet vitae, iaculis non leo. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare ultricies dictum.<br>
+						Nunc dictum enim ut fringilla pretium. Morbi sem mi, egestas ac volutpat sit amet, cursus quis est. Nullam enim mi, eleifend id commodo eget, ornare id risus. Morbi eleifend id enim eu facilisis. Pellentesque erat mi, suscipit eget odio eget, feugiat porttitor urna. Ut libero lacus, commodo elementum iaculis a, consequat at turpis. Nulla ullamcorper vel felis in suscipit.</p>
+					</article>
+
+					<article>
+						<h2 id="article3">3. Lorem Ipsum</h2>
+						<p class="justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vehicula dolor a nulla iaculis pellentesque. Phasellus nisl neque, bibendum mattis ante sit amet, laoreet dapibus sapien. Etiam sodales sodales felis, eget scelerisque nunc malesuada id. Nam et sodales diam, sodales bibendum dolor. Etiam id felis enim. Duis malesuada velit quam, a tempus ligula finibus a. Sed erat sapien, eleifend ac elit sit amet, malesuada laoreet elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Praesent eleifend mi ante, at hendrerit quam dapibus vitae. Fusce luctus augue in sem sollicitudin, non vehicula eros condimentum. Sed tincidunt lectus libero, sed porttitor lacus malesuada nec. Pellentesque mattis sollicitudin purus, eu egestas erat dignissim a.<br>
+						Ut ut eros finibus, vestibulum massa nec, mollis velit. Vivamus posuere maximus justo sed suscipit. Nulla tincidunt libero sem, in elementum leo dignissim non. Aliquam at ante vel velit molestie pulvinar. Ut consectetur risus vel risus consequat tristique. Proin leo nisl, pellentesque nec mattis eget, cursus sed urna. Nam semper venenatis lobortis. Curabitur accumsan ullamcorper nisl vitae tincidunt. Pellentesque semper mattis iaculis. Nulla facilisi. Cras nec tellus quis sem tincidunt porta eget nec lacus. Aliquam erat volutpat. Vestibulum interdum convallis odio ut luctus. Phasellus finibus bibendum condimentum. Aliquam tincidunt gravida consectetur.<br>
+						Proin ullamcorper aliquet libero nec faucibus. In quis tellus quam. Duis gravida ultrices rhoncus. Aliquam lectus nulla, mattis vitae molestie a, euismod nec tellus. Vestibulum dapibus nulla eget lectus molestie, non aliquam lacus aliquet. Suspendisse eu vulputate elit. Mauris at enim a elit tempor volutpat. Vivamus massa magna, auctor et mattis quis, molestie sit amet turpis. Nunc imperdiet facilisis justo vel vehicula. Etiam eros nisl, volutpat ut rutrum sed, molestie at nibh. Donec congue eleifend consequat. Nunc justo eros, interdum sed imperdiet vitae, iaculis non leo. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ornare ultricies dictum.<br>
+						Nunc dictum enim ut fringilla pretium. Morbi sem mi, egestas ac volutpat sit amet, cursus quis est. Nullam enim mi, eleifend id commodo eget, ornare id risus. Morbi eleifend id enim eu facilisis. Pellentesque erat mi, suscipit eget odio eget, feugiat porttitor urna. Ut libero lacus, commodo elementum iaculis a, consequat at turpis. Nulla ullamcorper vel felis in suscipit.</p>
+					</article>
+
+				</section>
+			</main>
+
+
+
+			<footer>
+
+				<nav>
+					<ul>
+						| <li><a href="../index.html"> Home </a></li> |
+						<li><a href="../blog/blog-diary.html"> Blog </a></li> |
+						<li><a href="about.html"> About </a></li> |
+						<li><a href="contact.html"> Contact </a></li> |
+						<li><a href="resources.html"> Resources & Download </a></li> |
+						<li><a href="newsletter.html"> Newsletter </a></li> |
+					</ul>
+				</nav>
+				
+				<div class="social">
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Instagram</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">LinkedIn</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Pinterest</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Telegram</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">YouTube</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">VK</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Rutube</a></span>
+					<span class="pipe">|</span> <span class="social-item"><a href="#">Viber</a></span> <span class="pipe">|</span>
+				</div>
+
+				<div class="copyright">
+					<p> &copy; 2025 <a href="../index.html">Trusevirina.com</a> - Tutti i diritti riservati </p>
+				</div>
+				
+			</footer>
+
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- Protezione anti-copia -->
+		<script>
+			// 1. Blocca click destro
+			document.addEventListener('contextmenu', event => event.preventDefault());
+
+			// 2. Blocca scorciatoie da tastiera comuni
+			document.addEventListener('keydown', function(e) {
+				// Ctrl+C, Ctrl+X, Ctrl+U, Ctrl+S, Ctrl+A
+				if (e.ctrlKey && ['c','x','u','s','a'].includes(e.key.toLowerCase())) {
+					e.preventDefault();
+					alert('Copia disabilitata per protezione contenuti.');
+				}
+			});
+
+			// 3. Facoltativo: overlay invisibile sugli articoli
+			document.querySelectorAll('.content article').forEach(article => {
+				let overlay = document.createElement('div');
+				overlay.className = 'protect-overlay';
+				article.style.position = 'relative';
+				article.appendChild(overlay);
+
+				// Permetti click sui link interni
+				overlay.style.pointerEvents = 'none';
+			});
+
+		</script>
+
+
+
+
+	</BODY>
+
+
+
+</HTML>
