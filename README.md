@@ -233,18 +233,19 @@ These objectives are **potential and flexible**: items may be removed, modified,
 ---
 
 - [x] Create website structure
-- [ ] Develop all site pages:
+- [ ] Develop all site pages (template):
     - [ ] Home **IN PROGRESS**
-    - [ ] Blog
-    - [ ] About
-    - [ ] Contact
-    - [ ] Resources & Download
-    - [ ] Newsletter
+    - [x] Blog
+    - [x] About
+    - [x] Contact
+    - [x] Resources & Download
+    - [x] Newsletter
 - [ ] Integrate JavaScript widgets for small interactive features:
     - [ ] Counters and timers
          - [ ] Local visit counter (using `localStorage`)
          - [ ] Timer / countdown (events, offers, launches)
-         - [x] Digital or analog clock (user local time)
+         - [ ] Digital or analog clock (user local time)
+         - [x] Digital or analog clock (specific time zone — Europe/Rome)
          - [ ] Stopwatch
          - [ ] User counter
     - [ ] Animations and visual effects
@@ -274,12 +275,12 @@ These objectives are **potential and flexible**: items may be removed, modified,
          - [ ] PDF generator / local print
          - [ ] Local conditions display (local time, timezone)
          - [ ] Word / character counter (for blog or online writing)
-- [ ] Add 2 posts per Blog section:
-    - [ ] Articles
-    - [ ] Diary
-    - [ ] Posts (general)
-    - [ ] Writing
-    - [ ] Updates
+- [x] Add 2 posts per Blog section (template):
+    - [x] Articles
+    - [x] Diary
+    - [x] Posts (general)
+    - [x] Writing
+    - [x] Updates
 - [ ] Multi-language Support
     - [ ] English
     - [ ] Italian
